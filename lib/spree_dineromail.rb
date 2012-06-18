@@ -1,5 +1,5 @@
 require 'spree_core'
-require 'spree_dineromail_hooks'
+#require 'spree_dineromail_hooks'
 
 module SpreeDineromail
   class Engine < Rails::Engine
