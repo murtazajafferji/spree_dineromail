@@ -11,7 +11,11 @@ module SpreeDineromail
         Rails.env.production? ? require(c) : load(c)
       end
     end
-
+    
+    initializer "spree_payment_network.register.payment_methods" do |app|
+      app.config.spree.payment_methods += [PaymentMethod::Dineromail]
+    end
+    
     config.to_prepare &method(:activate).to_proc
   end
 end
