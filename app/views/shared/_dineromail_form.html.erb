@@ -4,26 +4,26 @@
 
 	<form target="dineromail" accept-charset="ISO-8859-1" action="https://checkout.dineromail.com/CheckOut" id="dineromail" class="dineromail" method="post" name="CheckOut1">
 
-		<%= hidden_field_tag "merchant", order.payment_method.preferences["dineromail_email"] %>
+		<%#= hidden_field_tag "merchant", order.payment_method.preferences[:dineromail_email] %>
+		<%= hidden_field_tag "merchant", order.payment_method.preferences[:dineromail_email] %> <!-- "94339" -->
 		<%= hidden_field_tag "language", "es" %>
-		<%= hidden_field_tag "country_id", "3" %>
+		<%= hidden_field_tag "country_id", "2" %>
 		<%= hidden_field_tag "transaction_id", order.id %>
 		<%= hidden_field_tag "payment_method_available", "all" %>
-		<%= hidden_field_tag "tool", "button" %>
-
-		<% i = 0 %>
-		<% order.line_items.each_with_index do |item, i| %>
-			<% i += 1 %>
-			<%= hidden_field_tag "item_currency_#{i}", "clp" %>
-			<%= hidden_field_tag "payment_method_#{i}", "cl_servipag" %>
+		<%= hidden_field_tag "tool", "cart" %>
+		<%= hidden_field_tag "currency", "mxn" %>
+		<% i = 1 %>
+		<% order.line_items.each do |item| %>
+			<%= hidden_field_tag "item_currency_#{i}", "mxn" %>
+			<%= hidden_field_tag "payment_method_#{i}", "mx_amex" %>
 			<%= hidden_field_tag "item_quantity_#{i}", item.quantity %>
 			<%= hidden_field_tag "item_id_#{i}", item.product.id %>
 			<%= hidden_field_tag "item_name_#{i}", item.product.name %>
 			<%= hidden_field_tag "item_ammount_#{i}", (item.price * 100).to_i %>
+			<% i += 1 %>
 		<% end %>
-		<% i += 1 %>
-			<%= hidden_field_tag "item_currency_#{i}", 1 %>
-			<%= hidden_field_tag "payment_method_#{i}", "cl_servipag" %>
+			<%= hidden_field_tag "item_currency_#{i}", "mxn" %>
+			<%= hidden_field_tag "payment_method_#{i}", "mx_amex" %>
 			<%#= hidden_field_tag "item_quantity_#{i}", item.quantity %>
 			<%= hidden_field_tag "item_quantity_#{i}", 1 %>
 			<%= hidden_field_tag "item_id_#{i}", 0 %>
