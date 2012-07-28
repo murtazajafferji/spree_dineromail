@@ -4,8 +4,7 @@
 
 	<form target="dineromail" accept-charset="ISO-8859-1" action="https://checkout.dineromail.com/CheckOut" id="dineromail" class="dineromail" method="post" name="CheckOut1">
 
-		<%#= hidden_field_tag "merchant", order.payment_method.preferences[:dineromail_email] %>
-		<%= hidden_field_tag "merchant", order.payment_method.preferences[:merchant_id] %>
+		<%= hidden_field_tag "merchant", order.payment_method.preferences[:dineromail_merchant_id] %>
 		<%= hidden_field_tag "language", "es" %>
 		<%= hidden_field_tag "country_id", "2" %>
 		<%= hidden_field_tag "transaction_id", order.id %>
