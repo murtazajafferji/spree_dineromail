@@ -1,3 +1,3 @@
 class PaymentMethod::Dineromail < Spree::PaymentMethod
-  preference :merchant_id, :integer
+  preference :dineromail_merchant_id, :integer
 end
