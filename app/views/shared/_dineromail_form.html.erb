@@ -2,7 +2,7 @@
 
 	<h4 style="border-bottom:1px solid #DDDDDD;">Efetue el pago para concretar su compra</h4>
 
-	<form target="dineromail" accept-charset="ISO-8859-1" action="https://checkout.dineromail.com/CheckOut" id="dineromail" class="dineromail" method="post" name="CheckOut1">
+	<form accept-charset="ISO-8859-1" action="https://checkout.dineromail.com/CheckOut" id="dineromail" class="dineromail" method="post" name="CheckOut1">
 
 		<%= hidden_field_tag "merchant", order.payment_method.preferences[:dineromail_merchant_id] %>
 		<%= hidden_field_tag "language", "es" %>
